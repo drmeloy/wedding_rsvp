@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { RSVP } from './components/RSVP';
 import { SignIn } from './components/SignIn';
 import { Attendee, newUser } from './types';
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
     {!user && <SignIn email={email} setEmail={setEmail} onClick={handleSignInClick} />}
-    {user && <div>Signed in</div>}
+    {user && <RSVP user={user} setUser={setUser} onClick={() => {}} />}
     </>
   );
 }

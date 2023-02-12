@@ -31,3 +31,10 @@
   cursor: pointer;
   background-color: rgba(4, 126, 85, 0);
 }
+
+.rsvpContainer, .infoForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

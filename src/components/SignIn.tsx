@@ -3,7 +3,7 @@ import '../App.css';
 export const SignIn = ({ email, setEmail, onClick }) => 
   <div className="signInContainer">
     <div style={{ fontSize: "3em" }}>
-      Thank you for coming to RSVP for our wedding!
+      Thank you for RSVP'ing to our wedding!
     </div>
     <div style={{ fontSize: "2em" }}>
       To begin, please enter your email:

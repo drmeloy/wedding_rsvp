@@ -2,9 +2,12 @@ export type Attendee = {
   name: string;
   email: string;
   stayDuration: DayFlags;
+  stayLocation: {
+    onPremises: boolean;
+    tentOrRv: "tent" | "rv";
+  };
   dietaryRestrictions: boolean;
   dietaryRestrictionsDescription: string | null;
-  interestedInHelping: CanHelpWith;
   attendingWith: Attendee[];
 }
 
@@ -14,11 +17,6 @@ type DayFlags = {
   sat: boolean;
   sun: boolean;
   mon: boolean;
-}
-
-type CanHelpWith = {
-  meals: DayFlags;
-  desserts: boolean;
 }
 
 const defaultDayFlags: DayFlags = {
@@ -33,11 +31,11 @@ export const newUser: Attendee = {
   name: '',
   email: '',
   stayDuration: defaultDayFlags,
+  stayLocation: {
+    onPremises: true,
+    tentOrRv: 'tent'
+  },
   dietaryRestrictions: false,
   dietaryRestrictionsDescription: null,
-  interestedInHelping: {
-    meals: defaultDayFlags,
-    desserts: false
-  },
   attendingWith: [],
 }
