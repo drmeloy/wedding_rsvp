@@ -7,8 +7,14 @@ export type Attendee = {
     tentOrRv: "tent" | "rv";
   };
   dietaryRestrictions: boolean;
-  dietaryRestrictionsDescription: string | null;
-  attendingWith: Attendee[];
+  dietaryRestrictionsDescription: string;
+  hasPartyMembers: boolean;
+  partyMembers: PartyMember[];
+}
+
+type PartyMember = {
+  name: string;
+  email: string;
 }
 
 type DayFlags = {
@@ -36,6 +42,7 @@ export const newUser: Attendee = {
     tentOrRv: 'tent'
   },
   dietaryRestrictions: false,
-  dietaryRestrictionsDescription: null,
-  attendingWith: [],
+  dietaryRestrictionsDescription: '',
+  hasPartyMembers: false,
+  partyMembers: [{ name: '', email: '' }],
 }

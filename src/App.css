@@ -8,6 +8,7 @@
   background-image: linear-gradient(rgba(23, 234, 217, 0.157), rgba(2, 67, 23, 0.939)), url('/public/trees.jpg');
   background-repeat: no-repeat;
   background-position: top;
+  text-align: center;
 }
 
 .signInInput {
@@ -32,9 +33,31 @@
   background-color: rgba(4, 126, 85, 0);
 }
 
-.rsvpContainer, .infoForm {
+.rsvpContainer, .infoForm, .partyMembersContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dietaryRestrictionsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restrictionsDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: .75em;
+}
+
+.partyMemberInfo {
+  margin: .5em;
+}
+
+.partyMemberInfo label {
+  margin: .5em;
 }

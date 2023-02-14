@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Attendee } from "../types";
 
 export const RSVP = ({
@@ -26,6 +27,23 @@ export const RSVP = ({
       ...user,
       stayLocation: { ...user.stayLocation, tentOrRv: value },
     });
+  const handleDietaryRestrictionsChange = (value) =>
+    setUser({ ...user, dietaryRestrictions: value });
+  const handleRestrictionsDescriptionChange = (value) =>
+    setUser({ ...user, dietaryRestrictionsDescription: value });
+  const handleHasPartyChange = (value) =>
+    setUser({ ...user, hasPartyMembers: value });
+  const setNumberInParty = (value) => {
+    const newArray = user.partyMembers.slice();
+    if (value > newArray.length) newArray.push({ name: "", email: "" });
+    if (value < newArray.length) newArray.pop();
+    setUser({ ...user, partyMembers: newArray });
+  };
+  const handlePartyMembersChange = (i, type: "name" | "email", value) => {
+    const newPartyMembersArray = user.partyMembers.slice();
+    newPartyMembersArray[i][type] = value;
+    setUser({ ...user, partyMembers: newPartyMembersArray });
+  };
 
   return (
     <div className="rsvpContainer">
@@ -127,14 +145,114 @@ export const RSVP = ({
               />
               <label htmlFor="rv">RV/trailer</label>
             </div>
-            {user.stayLocation.tentOrRv === "rv" &&
-              <p>Please communicate with Dan & Madz to verify there are enough spaces left!</p>
-            }
+            {user.stayLocation.tentOrRv === "rv" && (
+              <p>
+                Please communicate with Dan & Madz to verify there are enough
+                spaces left!
+              </p>
+            )}
           </>
         )}
-        {user.stayLocation.onPremises === false && 
-          <p>Enjoy your stay wherever you'll be! Keep tuned for car pooling options to reduce the number of cars parking on site.</p>
-        }
+        {user.stayLocation.onPremises === false && (
+          <p>
+            Enjoy your stay wherever you'll be! Keep tuned for car pooling
+            options to reduce the number of cars parking on site.
+          </p>
+        )}
+        <p>Do you have any dietary restrictions?</p>
+        <div className="dietaryRestrictionsContainer">
+          <input
+            type="radio"
+            id="dietYes"
+            name="dietaryRestrictions"
+            checked={user.dietaryRestrictions === true}
+            onChange={() => handleDietaryRestrictionsChange(true)}
+          />
+          <label htmlFor="dietYes">Yes</label>
+
+          <input
+            type="radio"
+            id="dietNo"
+            name="dietaryRestrictions"
+            checked={user.dietaryRestrictions === false}
+            onChange={() => handleDietaryRestrictionsChange(false)}
+          />
+          <label htmlFor="dietNo">No</label>
+        </div>
+        {user.dietaryRestrictions && (
+          <div className="restrictionsDescription">
+            <label htmlFor="w3review">Please describe:</label>
+            <div>
+              <textarea
+                id="w3review"
+                name="w3review"
+                cols={40}
+                rows={5}
+                value={user.dietaryRestrictionsDescription}
+                onChange={({ target }) =>
+                  handleRestrictionsDescriptionChange(target.value)
+                }
+              />
+            </div>
+          </div>
+        )}
+        <div className="partyMembersContainer">
+          <p>Are you coming with anyone else?</p>
+          <div>
+            <input
+              type="radio"
+              id="partyYes"
+              name="hasParty"
+              checked={user.hasPartyMembers === true}
+              onChange={() => handleHasPartyChange(true)}
+            />
+            <label htmlFor="partyYes">Yes</label>
+
+            <input
+              type="radio"
+              id="partyNo"
+              name="hasParty"
+              checked={user.hasPartyMembers === false}
+              onChange={() => handleHasPartyChange(false)}
+            />
+            <label htmlFor="partyNo">No</label>
+          </div>
+        </div>
+        {user.hasPartyMembers && (
+          <div className="partyMembersContainer">
+            <p>How many others are coming with you?</p>
+            <input
+              type="number"
+              value={user.partyMembers.length}
+              onChange={({ target }) => setNumberInParty(Number(target.value))}
+            />
+            <div className="partyInfoContainer">
+            {user.partyMembers.map((partyMember, i) => (
+              <div key={i} className="partyMemberInfo">
+                <label htmlFor={`partyMember${i}Name`}>Name {i + 1}:</label>
+                <input
+                  type="text"
+                  id={`partyMember${i}Name`}
+                  value={user.partyMembers[i].name}
+                  onChange={({ target }) =>
+                    handlePartyMembersChange(i, "name", target.value)
+                  }
+                />
+
+                <label htmlFor={`partyMember${i}Email`}>Email {i + 1}:</label>
+                <input
+                  type="text"
+                  id={`partyMember${i}Email`}
+                  value={user.partyMembers[i].email}
+                  onChange={({ target }) =>
+                    handlePartyMembersChange(i, "email", target.value)
+                  }
+                />
+              </div>
+            ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
