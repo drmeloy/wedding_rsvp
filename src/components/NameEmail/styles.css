@@ -1,0 +1,15 @@
+.nameEmailContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.nameEmailContainer label {
+  margin: .5em;
+}
+
+input {
+  text-align: center;
+  height: 1.5em;
+  font-family: 'Lora', serif;
+}

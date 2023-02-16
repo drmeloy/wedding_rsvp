@@ -1,0 +1,34 @@
+.signInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: 'Lora', serif;
+  background-image: linear-gradient(rgba(23, 234, 217, 0.157), rgba(2, 67, 23, 0.939)), url('/public/trees.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+}
+
+.signInInput {
+  font-size: 1.5em;
+  margin: 1em;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+.signInButton {
+  font-size: 1.3em;
+  padding: .5em .75em;
+  color: white;
+  background-color: rgba(4, 126, 85, 0.584);
+  border-radius: 1.5em;
+  border-width: 1px;
+  transition: background-color 250ms;
+}
+
+.signInButton:hover {
+  cursor: pointer;
+  background-color: rgba(4, 126, 85, 0);
+}

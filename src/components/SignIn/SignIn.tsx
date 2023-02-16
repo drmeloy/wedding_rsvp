@@ -1,4 +1,4 @@
-import '../App.css';
+import './styles.css';
 
 export const SignIn = ({ email, setEmail, onClick }) => 
   <div className="signInContainer">

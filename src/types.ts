@@ -17,7 +17,7 @@ type PartyMember = {
   email: string;
 }
 
-type DayFlags = {
+export type DayFlags = {
   thu: boolean;
   fri: boolean;
   sat: boolean;
