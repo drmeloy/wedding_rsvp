@@ -2,7 +2,7 @@ import './styles.css';
 
 export const NameEmail = ({ name, setName, email, setEmail }) => (
   <div className="nameEmailContainer">
-    <div>
+    <div className='nameEmailInput'>
       <label htmlFor="name" className="questionHeader">
         Name:
       </label>
@@ -14,7 +14,7 @@ export const NameEmail = ({ name, setName, email, setEmail }) => (
         onChange={({ target }) => setName(target.value)}
       />
     </div>
-    <div>
+    <div className='nameEmailInput'>
       <label htmlFor="email" className="questionHeader">
         Email:
       </label>

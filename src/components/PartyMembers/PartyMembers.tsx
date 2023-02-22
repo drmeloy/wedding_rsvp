@@ -1,4 +1,4 @@
-import './styles.css';
+import "./styles.css";
 
 export const PartyMembers = ({
   hasPartyMembers,
@@ -8,9 +8,9 @@ export const PartyMembers = ({
   setPartyMembers,
 }) => (
   <>
-    <div className="partyMembersContainer">
+    <div>
       <p className="questionHeader">Are you coming with anyone else?</p>
-      <div>
+      <div className="partyYesNoContainer">
         <input
           type="radio"
           id="partyYes"
@@ -18,7 +18,9 @@ export const PartyMembers = ({
           checked={hasPartyMembers}
           onChange={() => setHasPartyMembers(true)}
         />
-        <label htmlFor="partyYes">Yes</label>
+        <label className="selectable" htmlFor="partyYes">
+          Yes
+        </label>
 
         <input
           type="radio"
@@ -27,22 +29,26 @@ export const PartyMembers = ({
           checked={!hasPartyMembers}
           onChange={() => setHasPartyMembers(false)}
         />
-        <label htmlFor="partyNo">No</label>
+        <label className="selectable" htmlFor="partyNo">
+          No
+        </label>
       </div>
     </div>
     {hasPartyMembers && (
       <div className="partyMembersContainer">
-        <p className="questionHeader">How many others are coming with you?</p>
-        <input
-          type="number"
-          value={partyMembers.length}
-          onChange={({ target }) => setNumberInParty(Number(target.value))}
-        />
+        <div className="partyNumberContainer">
+          <p className="questionHeader">How many others are coming with you?</p>
+          <div className="partyNumber">
+            <span className="arrow" onClick={() => setNumberInParty(partyMembers.length - 1)}>←</span>
+            <span className="theNum">{partyMembers.length}</span>
+            <span className="arrow" onClick={() => setNumberInParty(partyMembers.length + 1)}>→</span>
+          </div>
+        </div>
         <div className="partyInfoContainer">
           {partyMembers.map((partyMember, i) => (
-            <div key={i} className="partyMemberInfo">
+            <div key={i} className="partyMemberInfo nameEmailInput">
               <label htmlFor={`partyMember${i}Name`} className="questionHeader">
-                Name {i + 1}:
+                Name {partyMembers.length > 1 && i + 1}:
               </label>
               <input
                 type="text"
@@ -57,7 +63,7 @@ export const PartyMembers = ({
                 htmlFor={`partyMember${i}Email`}
                 className="questionHeader"
               >
-                Email {i + 1}:
+                Email {partyMembers.length > 1 && i + 1}:
               </label>
               <input
                 type="text"

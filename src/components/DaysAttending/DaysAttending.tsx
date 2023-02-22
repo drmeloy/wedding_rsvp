@@ -9,7 +9,7 @@ export const DaysAttending = ({
   handleChange: (value) => void;
 }) => (
   <div>
-    <p className="questionHeader">Which days will you be attending:</p>
+    <p className="questionHeader">Select which days will you be attending:</p>
     <div className="daysContainer">
       {[
         { label: "Thursday", value: "thu" },
@@ -25,7 +25,7 @@ export const DaysAttending = ({
             checked={daysAttending[day.value]}
             onChange={({ target }) => handleChange(target.id)}
           />
-          <label htmlFor={day.value}>{day.label}</label>
+          <label className="selectable" htmlFor={day.value}>{day.label}</label>
         </div>
       ))}
     </div>

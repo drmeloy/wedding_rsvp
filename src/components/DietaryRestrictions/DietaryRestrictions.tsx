@@ -1,4 +1,4 @@
-import './styles.css';
+import "./styles.css";
 
 export const DietaryRestrictions = ({
   hasDietaryRestrictions,
@@ -16,7 +16,9 @@ export const DietaryRestrictions = ({
         checked={hasDietaryRestrictions}
         onChange={() => setHasDietaryRestrictions(true)}
       />
-      <label htmlFor="dietYes">Yes</label>
+      <label className="selectable" htmlFor="dietYes">
+        Yes
+      </label>
 
       <input
         type="radio"
@@ -25,24 +27,24 @@ export const DietaryRestrictions = ({
         checked={!hasDietaryRestrictions}
         onChange={() => setHasDietaryRestrictions(false)}
       />
-      <label htmlFor="dietNo">No</label>
+      <label className="selectable" htmlFor="dietNo">
+        No
+      </label>
     </div>
-    {hasDietaryRestrictions && (
-      <div className="restrictionsDescription">
-        <label htmlFor="w3review">Please describe:</label>
-        <div>
-          <textarea
-            id="w3review"
-            name="w3review"
-            cols={40}
-            rows={5}
-            value={restrictionsDescription}
-            onChange={({ target }) =>
-              setRestrictionsDescription(target.value)
-            }
-          />
-        </div>
+
+    <div className="restrictionsDescription">
+      <label htmlFor="w3review">Please describe:</label>
+      <div>
+        <textarea
+          id="w3review"
+          name="w3review"
+          cols={40}
+          rows={5}
+          value={hasDietaryRestrictions ? restrictionsDescription : ''}
+          onChange={({ target }) => setRestrictionsDescription(target.value)}
+          disabled={!hasDietaryRestrictions}
+        />
       </div>
-    )}
+    </div>
   </>
 );

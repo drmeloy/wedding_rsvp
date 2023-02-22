@@ -12,12 +12,16 @@ function App() {
     if (!userData) setUser({ ...newUser, email });
   };
 
+  const handleSubmitClick = () => {
+    
+  }
+
   return (
     <>
       {!user && (
         <SignIn email={email} setEmail={setEmail} onClick={handleSignInClick} />
       )}
-      {user && <RSVP user={user} setUser={setUser} onClick={() => {}} />}
+      {user && <RSVP user={user} setUser={setUser} onClick={handleSubmitClick} />}
     </>
   );
 }

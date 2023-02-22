@@ -1,7 +1,25 @@
-.partyMemberInfo {
+.partyMemberInfo label {
   margin: .5em;
 }
 
-.partyMemberInfo label {
+.partyNumber {
+  font-size: 2em;
+  margin-top: 1em;
+  margin-left: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theNum {
+  font-size: 1.5em;
+}
+
+.arrow {
   margin: .5em;
+}
+
+.arrow:hover {
+  cursor: pointer;
+  color: gold;
 }

@@ -41,6 +41,7 @@ export const RSVP = ({
   const handleHasPartyChange = (value) =>
     setUser({ ...user, hasPartyMembers: value });
   const setNumberInParty = (value) => {
+    if (value === 0) return;
     const newArray = user.partyMembers.slice();
     if (value > newArray.length) newArray.push({ name: "", email: "" });
     if (value < newArray.length) newArray.pop();
@@ -87,6 +88,7 @@ export const RSVP = ({
           setNumberInParty={setNumberInParty}
           setPartyMembers={handlePartyMembersChange}
         />
+        <button className="submit" onClick={onClick}>Submit</button>
       </div>
     </div>
   );

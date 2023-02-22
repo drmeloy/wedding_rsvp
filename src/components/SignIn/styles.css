@@ -26,9 +26,12 @@
   border-radius: 1.5em;
   border-width: 1px;
   transition: background-color 250ms;
+  transition: padding 250ms;
 }
 
 .signInButton:hover {
   cursor: pointer;
+  padding: .75em 1em;
   background-color: rgba(4, 126, 85, 0);
+  box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.606);
 }

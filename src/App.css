@@ -6,5 +6,57 @@
 }
 
 .questionHeader {
-  font-size: 1.5em;
+  font-size: 1.75em;
+  margin-top: 1.25em;
+}
+
+h1.questionHeader {
+  margin-top: 1em;
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+}
+
+.selectable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px green;
+  background-color: rgba(0, 128, 0, 0.261);
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 40px;
+  transition: height 300ms;
+  transition: width 300ms;
+  margin: 1em 2em;
+}
+
+.selectable:hover {
+  cursor: pointer;
+  border-color:rgba(0, 51, 0, 0.783)
+}
+
+input:checked + label.selectable {
+  border: solid 2px gold;
+  color: gold;
+  width: 210px;
+  height:50px;
+  background-color: rgba(255, 217, 0, 0.075);
+  box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.606);
+}
+
+.daysContainer, 
+.locationContainer, 
+.tentOrRvContainer, 
+.dietaryRestrictionsContainer,
+.partyYesNoContainer,
+.partyNumberContainer,
+.nameEmailInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

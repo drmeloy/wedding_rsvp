@@ -14,7 +14,7 @@ export const WhereStaying = ({
         checked={stayingOnPremises === true}
         onChange={() => setStayingOnPremises(true)}
       />
-      <label htmlFor="yes">Yes</label>
+      <label className="selectable" htmlFor="yes">Yes</label>
 
       <input
         type="radio"
@@ -23,7 +23,7 @@ export const WhereStaying = ({
         checked={stayingOnPremises === false}
         onChange={() => setStayingOnPremises(false)}
       />
-      <label htmlFor="no">No</label>
+      <label className="selectable" htmlFor="no">No</label>
     </div>
     {stayingOnPremises === true && (
       <>
@@ -36,7 +36,7 @@ export const WhereStaying = ({
             checked={tentOrRv === "tent"}
             onChange={() => setTentOrRv("tent")}
           />
-          <label htmlFor="tent">Tent</label>
+          <label className="selectable" htmlFor="tent">Tent</label>
 
           <input
             type="radio"
@@ -45,7 +45,7 @@ export const WhereStaying = ({
             checked={tentOrRv === "rv"}
             onChange={() => setTentOrRv("rv")}
           />
-          <label htmlFor="rv">RV/trailer</label>
+          <label className="selectable" htmlFor="rv">RV/trailer</label>
         </div>
         {tentOrRv === "rv" && (
           <p>
