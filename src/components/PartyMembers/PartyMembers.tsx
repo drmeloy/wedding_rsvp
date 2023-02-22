@@ -37,7 +37,7 @@ export const PartyMembers = ({
     {hasPartyMembers && (
       <div className="partyMembersContainer">
         <div className="partyNumberContainer">
-          <p className="questionHeader">How many others are coming with you?</p>
+          <p className="questionHeader">Do you have a plus one?</p>
           <div className="partyNumber">
             <span className="arrow" onClick={() => setNumberInParty(partyMembers.length - 1)}>←</span>
             <span className="theNum">{partyMembers.length}</span>
